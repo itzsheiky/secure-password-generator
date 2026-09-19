@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#09070f" />
+    <meta name="description" content="Generate strong passwords locally with VoidPass." />
+    <title>VOIDPASS — Secure Password Generator</title>
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='28' fill='%2309070f' stroke='%238b5cf6' stroke-width='4'/%3E%3Ccircle cx='32' cy='32' r='13' fill='%23000000'/%3E%3C/svg%3E" />
+    <link rel="stylesheet" href="styles.css" />
+    <script defer src="app.js"></script>
+  </head>
+  <body>
+    <div class="stars" aria-hidden="true"></div>
+    <div class="black-hole" aria-hidden="true"><span></span></div>
+
+    <main class="shell">
+      <header class="brand">
+        <div class="brand-mark" aria-hidden="true">⌁</div>
+        <div>
+          <p class="eyebrow">PRIVATE / LOCAL / SECURE</p>
+          <h1>VOID<span>PASS</span></h1>
+          <p class="tagline">Secure Password Generator</p>
+        </div>
+      </header>
+
+      <section class="app-card" aria-labelledby="generator-title">
+        <div class="card-heading">
+          <div><p class="eyebrow">SECURITY UTILITY 01</p><h2 id="generator-title">Create a password for the unknown.</h2></div>
+          <span class="status"><i></i> Local only</span>
+        </div>
+
+        <div class="output-panel">
+          <div class="output-meta"><span>GENERATED OUTPUT</span><span id="strength-label">Very Strong</span></div>
+          <output id="password-output" class="password-output" aria-live="polite">aB7!mQ2#vR9@kL4$</output>
+          <div class="output-actions">
+            <button class="button button-secondary" id="copy-button" type="button">Copy <span aria-hidden="true">↗</span></button>
+            <button class="icon-button" id="regenerate-button" type="button" aria-label="Regenerate password" title="Regenerate password">↻</button>
+          </div>
+          <div
+            id="strength-meter"
+            class="strength-track"
+            role="progressbar"
+            aria-label="Estimated password strength"
+            aria-valuemin="0"
+            aria-valuemax="100"
+            aria-valuenow="100"
+            aria-valuetext="Very Strong"
+          ><span id="strength-bar"></span></div>
+          <p id="copy-status" class="copy-status" role="status"></p>
+        </div>
+
+        <form id="generator-form">
+          <div class="controls-grid">
+            <div class="control-section length-section">
+              <div class="section-label"><label for="length">Password length</label><output id="length-value">20 characters</output></div>
+              <input id="length" type="range" min="4" max="128" value="20" aria-describedby="length-value" />
+              <div class="range-limits"><span>04</span><span>128</span></div>
+            </div>
+            <div class="control-section">
+              <div class="section-label"><span>Character sets</span><span id="set-count">4 selected</span></div>
+              <div class="options-grid">
+                <label class="option"><input type="checkbox" name="uppercase" checked /><span class="checkmark">✓</span><span>Uppercase</span><small>A–Z</small></label>
+                <label class="option"><input type="checkbox" name="lowercase" checked /><span class="checkmark">✓</span><span>Lowercase</span><small>a–z</small></label>
+                <label class="option"><input type="checkbox" name="numbers" checked /><span class="checkmark">✓</span><span>Numbers</span><small>0–9</small></label>
+                <label class="option"><input type="checkbox" name="symbols" checked /><span class="checkmark">✓</span><span>Symbols</span><small>!@#$</small></label>
+              </div>
+            </div>
+          </div>
+          <p id="validation-message" class="validation" role="alert"></p>
+          <button class="button button-primary" type="submit">Generate password <span aria-hidden="true">→</span></button>
+        </form>
+
+        <dl class="stats" aria-label="Password information">
+          <div><dt>Length</dt><dd id="stat-length">20</dd></div>
+          <div><dt>Character sets</dt><dd id="stat-sets">4</dd></div>
+          <div><dt>Estimated entropy</dt><dd id="stat-entropy">~131 bits</dd></div>
+        </dl>
+      </section>
+
+      <footer><span>◈ Generated locally. Never stored.</span><span>VOIDPASS / v1.0</span></footer>
+    </main>
+  </body>
+</html>
