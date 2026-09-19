@@ -2,6 +2,13 @@
 
 A small, beginner-friendly password generator with both a Python command-line interface and a polished static browser interface.
 
+## Live Demo
+
+- VoidPass: https://voidpass-generator.netlify.app
+- GitHub: https://github.com/itzsheiky/secure-password-generator
+
+The web version runs entirely in the browser. Generated passwords are not sent to a server or stored by the application.
+
 ## Features
 
 - Choose any positive password length
@@ -17,7 +24,7 @@ A small, beginner-friendly password generator with both a Python command-line in
 1. Clone this repository:
 
    ```bash
-   git clone https://github.com/your-username/secure-password-generator.git
+   git clone https://github.com/itzsheiky/secure-password-generator.git
    cd secure-password-generator
    ```
 
@@ -89,6 +96,7 @@ secure-password-generator/
 ├── index.html     # Browser interface
 ├── styles.css     # Responsive Void theme
 ├── app.js         # Local browser generator
+├── netlify.toml   # Netlify production configuration
 ├── README.md      # Project documentation
 └── .gitignore     # Ignored Python and editor files
 ```
